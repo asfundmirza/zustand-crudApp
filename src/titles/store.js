@@ -1,16 +1,17 @@
 import { create } from "zustand";
 
-export const setTitles = create((set) => ({
-  //   return {
-  titles: [
+export const setPosts = create((set) => ({
+  posts: [
     {
-      id: 1,
       title: "asfund",
     },
     {
-      id: 2,
       title: "uzair",
     },
   ],
-  //   };
+  addPost: (post) => {
+    set((state) => {
+      return { posts: [...state.posts, post] };
+    });
+  },
 }));
