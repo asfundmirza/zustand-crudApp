@@ -3,7 +3,7 @@ import { setPosts } from "@/titles/store";
 import { useState } from "react";
 
 export default function Home() {
-  const { posts, addPost } = setPosts();
+  const { posts, addPost, deletePost } = setPosts();
   const [post, setPost] = useState("");
 
   const handleAddPost = () => {
@@ -12,6 +12,9 @@ export default function Home() {
     };
     addPost(newPost);
     setPost("");
+  };
+  const handleDeletePost = (index) => {
+    deletePost(index);
   };
   return (
     <main className="flex min-h-screen flex-col items-center gap-5  p-24">
@@ -42,7 +45,10 @@ export default function Home() {
               <button className="flex items-center text-center p-2  bg-blue-500">
                 Add
               </button>
-              <button className="flex items-center text-center p-2  bg-blue-500">
+              <button
+                onClick={() => handleDeletePost(index)}
+                className="flex items-center text-center p-2  bg-blue-500"
+              >
                 Delete
               </button>
             </div>
