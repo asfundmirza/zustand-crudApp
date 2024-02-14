@@ -25,7 +25,6 @@ export default function Home() {
     setEditedPost(post);
     setEditedPostIndex(index);
   };
-  console.log(editedPost, editedPostIndex);
   const editPostHandle = () => {
     const update = { ...editedPost, title: post };
     editPost(update, editedPostIndex);
